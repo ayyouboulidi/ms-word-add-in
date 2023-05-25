@@ -41,7 +41,7 @@
     function getDoc() {
         console.log("getDoc", {Word})
 
-        document.getElementById("doc_target").value = Word.body;
+        document.getElementById("doc_target").value = JSON.stringify(Word);
     }
 </script>
 
