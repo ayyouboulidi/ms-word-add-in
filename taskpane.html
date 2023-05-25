@@ -31,7 +31,7 @@
         return Word.run((context) => {
 
             // insert a paragraph at the start of the document.
-            const paragraph = context.document.body.insertParagraph("Hello World", Word.InsertLocation.start);
+            const body = context.document.body.insertParagraph("Hello World", Word.InsertLocation.start);
             
             // sync the context to run the previous API call, and return.
             return context.sync();
@@ -41,7 +41,7 @@
     function getDoc() {
         console.log("getDoc", {Word})
 
-        document.getElementById("doc_target").value = JSON.stringify(Word);
+        document.getElementById("doc_target").value = Word.Body.getHtml();
     }
 </script>
 
