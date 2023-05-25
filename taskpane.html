@@ -13,6 +13,7 @@
     <button id="getButton">get document</button>
 
     <textarea id="doc_target" rows="3" value="" placeholder="html document"></textarea>
+    coucou
 
     <!-- The following image URL tracks diagnostic data for this sample add-in. Please remove the image tag if you reuse this sample in your own code project. -->
     <img src="https://pnptelemetry.azurewebsites.net/pnp-officeaddins/samples/word-add-in-hello-world-run" />
@@ -40,18 +41,18 @@
 
     function getDoc() {
         
-        document.getElementById("doc_target").value = Word.run((context) => {
+         return Word.run((context) => {
             // Create a proxy object for the document body.
             var body = context.document.body;
             
             // Queue a commmand to get the HTML contents of the body.
             var bodyHTML = body.getHtml();
-            console.log("getDoc", {bodyHTML})
+            console.log("body html", { bodyHTML })
 
             // Synchronize the document state by executing the queued commands, 
             // and return a promise to indicate task completion.
             return context.sync().then(function () {
-                return bodyHTML.value;
+                document.getElementById("doc_target").value = bodyHTML.value;
             });
         });
     }
