@@ -39,14 +39,14 @@
     }
 
     function getDoc() {
-        console.log("getDoc", {Word})
-
+        
         document.getElementById("doc_target").value = Word.run((context) => {
             // Create a proxy object for the document body.
             var body = context.document.body;
-
+            
             // Queue a commmand to get the HTML contents of the body.
             var bodyHTML = body.getHtml();
+            console.log("getDoc", {bodyHTML})
 
             // Synchronize the document state by executing the queued commands, 
             // and return a promise to indicate task completion.
