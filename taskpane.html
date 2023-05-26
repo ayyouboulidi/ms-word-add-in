@@ -8,14 +8,22 @@
 </head>
 
 <body>
+    <p>Semji add-in</p>
     <img src="https://ayyouboulidi.github.io/ms-word-add-in/assets/icon-80.png" />
-    <p>This Semji add-in.</p>
-    <button id="helloButton">Say hello</button>
+
+    <br />
+    <button id="insertH1">Insert H1</button>
+    <br />
+    <button id="insertH2">Insert H2</button>
+    <br />
+    <button id="insertParagraph">Insert paragraph</button>
+    <br />
     <button id="getButton">get document</button>
 
+    <h2>The document html</h2>
     <textarea id="doc_target" rows="3" value="" placeholder="html document"></textarea>
-    <div id="report_target">report</div>
-    coucou
+    <h2>The content score</h2>
+    <h2 id="report_target"></div>
 
     <!-- The following image URL tracks diagnostic data for this sample add-in. Please remove the image tag if you reuse this sample in your own code project. -->
     <img src="https://pnptelemetry.azurewebsites.net/pnp-officeaddins/samples/word-add-in-hello-world-run" />
@@ -25,16 +33,18 @@
     Office.onReady((info) => {
         // Check that we loaded into Word
         if (info.host === Office.HostType.Word) {
-            document.getElementById("helloButton").onclick = sayHello;
+            document.getElementById("insertH1").onclick = sayHello("h1", "This is an H1");
+            document.getElementById("insertH2").onclick = sayHello("h2", "This is an H2");
+            document.getElementById("insertParagraph").onclick = sayHello("p", "This is a paragraph");
             document.getElementById("getButton").onclick = getDoc;
         }
     });
 
-    function sayHello() {
+    function sayHello(tag, value) {
         return Word.run((context) => {
 
             // insert a paragraph at the start of the document.
-            const body = context.document.body.insertParagraph("Hello World", Word.InsertLocation.start);
+            const body = context.document.body.insertHtml(`<${tag}>${value}</${tag}>`, Word.InsertLocation.replace);
             
             // sync the context to run the previous API call, and return.
             return context.sync();
