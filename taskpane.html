@@ -44,7 +44,7 @@
         return Word.run((context) => {
 
             // insert a paragraph at the start of the document.
-            const body = context.document.body.insertHtml(`<${tag}>${value}</${tag}>`, Word.InsertLocation.replace);
+            const body = context.document.body.insertHtml(`<${tag}>${value}</${tag}>`, Word.InsertLocation.start);
             
             // sync the context to run the previous API call, and return.
             return context.sync();
