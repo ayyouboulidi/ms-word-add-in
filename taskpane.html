@@ -9,7 +9,7 @@
 
 <body>
     <p>Semji add-in</p>
-    <img src="https://ayyouboulidi.github.io/ms-word-add-in/assets/icon-80.png" />
+    <img style="width: 80px; height: 80px" src="https://ayyouboulidi.github.io/ms-word-add-in/assets/icon-80.png" />
 
     <br />
     <button id="insertH1">Insert H1</button>
@@ -33,9 +33,9 @@
     Office.onReady((info) => {
         // Check that we loaded into Word
         if (info.host === Office.HostType.Word) {
-            document.getElementById("insertH1").onclick = sayHello("h1", "This is an H1");
-            document.getElementById("insertH2").onclick = sayHello("h2", "This is an H2");
-            document.getElementById("insertParagraph").onclick = sayHello("p", "This is a paragraph");
+            document.getElementById("insertH1").onclick = insertH1;
+            document.getElementById("insertH2").onclick = insertH2;
+            document.getElementById("insertParagraph").onclick = insertP;
             document.getElementById("getButton").onclick = getDoc;
         }
     });
@@ -49,6 +49,20 @@
             // sync the context to run the previous API call, and return.
             return context.sync();
         });
+    }
+
+    function insertH1() {
+        sayHello("h1", "This is an H1");
+    }
+
+
+    function insertH2() {
+        sayHello("h2", "This is an H2");
+    }
+
+
+    function insertP() {
+        sayHello("p", "This is a paragraph");
     }
 
     function getDoc() {
