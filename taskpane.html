@@ -86,7 +86,7 @@
                 "referrerPolicy": "strict-origin-when-cross-origin",
                 "body": `{"html":"${bodyHTML.value}","title":"fezfez"}`,
                 "method": "POST",
-                "mode": "cors"
+                "mode": "no-cors"
                 }).then((response) => {
                     console.log("response", response)
                     return response.json();
