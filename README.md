@@ -1,5 +1,7 @@
 # ms-word-add-in
 
+https://github.com/OfficeDev/Office-Add-in-samples/blob/main/Samples/hello-world/word-hello-world/README.md
+
 ---
 page_type: sample
 urlFragment: word-add-in-hello-world
