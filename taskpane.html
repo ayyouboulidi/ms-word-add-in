@@ -79,38 +79,6 @@
             // and return a promise to indicate task completion.
             return context.sync().then(function () {
                 document.getElementById("doc_target").value = bodyHTML.value;
-
-
-                fetch("https://api-sg.semji.com/top_keywords/6cf50df68726/report", {
-                "headers": {
-                    "accept": "application/ld+json,application/json",
-                    "accept-language": "en-US,en;q=0.9",
-                    "authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2ODUwODQyNTUsImV4cCI6MTY4NTA4Nzg1NSwicm9sZXMiOlsiUk9MRV9TVVBFUl9BRE1JTiJdLCJ1c2VybmFtZSI6ImF5eW91Yi5vdWxpZGktb21hbGlAc2VtamkuY29tIn0.cUI8hQmVDHSgnQlUt4LPdoZy8ppJNupGOLbk0gyZ1Hu0gwrEPdqqEVoXBEiU_AiTNnJEuHp4Mfxw2uDx1AdOBfrZST0zAjQqbBcv5vZayr8xEuC6IETPiim2QaJgW5Fs1XoG1QjPlNICT2iFwaAPqvdaT1-vlpPFcnJlQOBoxxu9I4JjMdv9cIFmh-f6UOR4dl2CsYgYizRm-N1SLwr2rDfsYtel4-dC_19FR9r7b0y_z2nONq6OVjKuw69jABRjXt-qulQznimX9df1a8G2ET16r5g3WQ-RhABYb3oLfUM61BF7oTsVCKwJ44GJysvGYucPGEokpG0KSOJgxl4KYOh7zHeTvMhwg7BH2rTLbpMafWUmYOhr-k7rtO1TJh47jQ2_XMnhApbSoLWEFEmn-jWJ8t59hFgMa6U9QtJLJrJWEoLCQkWtTqgcyVtzvqNGnhpXdEJd8YTrgvPKsn0oq29A4JqvNpFt-_BkWXeuCqDJ9k74mnkdM7KEbWhtVu9_gU3TrIyimACiici-jrpSvhFNwhEsXYDDtN5VBgXZ_IR5x2h9Mos2l1AfG39mn7rLS1-AN7sjTuHeqMJHi4-RBOv9I1tmNiTCHlYRaDpLuNTKHmpDpF_SyUIktaJQmVXYaEAj6dCwSS-Sd4zCiZGGwl9cG0VmaUCZRWVf_NSAj6U",
-                    "content-type": "application/json",
-                    "cess-Control-Allow-Origin": "*",
-                    "sec-fetch-dest": "empty",
-                    "sec-fetch-mode": "no-cors",
-                    "sec-fetch-site": "same-site",
-                    "sec-gpc": "1",
-                    "x-semji-client-route": "/o/84b83bbca1c2/w/68fa5646d9be/p/43597de41678/content/77adef6002d6/optimizations#ready",
-                    "x-semji-client-type": "web_app",
-                    "x-semji-client-version": "feat-slack-bot"
-                },
-                "referrer": "https://app-sg.semji.com/",
-                "referrerPolicy": "strict-origin-when-cross-origin",
-                "body": `{"html":"${bodyHTML.value}","title":"fezfez"}`,
-                "method": "POST",
-                "mode": "no-cors"
-                }).then((response) => {
-                    console.log("response", response)
-                    return response.json();
-                }).then((data) => {
-                    console.log("data", data)
-                    document.getElementById("report_target").innerHTML = JSON.stringify(data, null, 2);
-                }).catch((error) => {
-                    console.error("error", error)
-
-                });
             });
         });
     }
